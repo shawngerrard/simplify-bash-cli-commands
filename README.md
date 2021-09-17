@@ -2,8 +2,7 @@
 
 The purpose of this is to provide the code snippets I use within .bashrc to simplify and extend Bitwarden CLI commands.
 
-The rationale behind this is that the default Bitwarden CLI commands return complex results that greatly affect 
-productivity.
+The rationale behind this is that the default Bitwarden CLI commands return complex results that likely require formatting, in-turn greatly affecting productivity.
 
 ## Prerequisites
 
@@ -19,7 +18,7 @@ productivity.
 
 5. It's strongly recommended you have xclip installed, otherwise you will need to edit the xclip calls to a clipboard manager of your choice (E.G clip.exe).
 
-## Step 1 - open .bashrc
+## Step 1 - Open .bashrc
 
 Use the followiung commands to open up your .bashrc script.
 
@@ -28,7 +27,7 @@ Use the followiung commands to open up your .bashrc script.
 nano ~/.bashrc
 ```
 
-## Step 2 - modify .bashrc with new functions / alias
+## Step 2 - Modify .bashrc with new functions / alias
 
 The following functions will allow usage of simplified commands to return specific data from Bitwarden.
 
@@ -52,11 +51,12 @@ function bwli () { local test=$(export BW_SESSION=~/.bw_session) && bw list item
 function bwgn () { local test=$(export BW_SESSION=~/.bw_session) && bw get item "$1" | grep -oP '(?<="notes":")[^"]*' | xclip;
 ```
 
+
 **Please note:** It is not recommended to export the session key to your environment to avoid session keys persisting on an unprotected disk.
 
 **Please note:** When using the search function, enclosing strings in quotes will attempt to match the whole search string within any text within Bitwarden items and return these items that match. You may need to ensure your Bitwarden items are uniquely named.
 
-## Step 3 - update .bashrc to clean up any older Bitwarden sessions
+## Step 3 - Update .bashrc to clean up any older Bitwarden sessions
 
 At the bottom of your script, use the following code to clean any previous session keys, reset the session key, and unlock the Bitwarden vault:
 
@@ -74,7 +74,7 @@ elif [ -f ~/.bw_session ]; then export BW_SESSION=$(cat ~/.bw_session);
 else bwu; fi
 ```
 
-## Step 4 - save and close the text editor
+## Step 4 - Save and close the text editor
 
 Within Nano, press ```CTRL+X``` to exit, and if any changes were made, you will be prompted to save the file (type "Y") and then choose the filename to save the file to. Press enter to save to the current file.
 
