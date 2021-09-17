@@ -52,9 +52,9 @@ function bwgn () { local test=$(export BW_SESSION=~/.bw_session) && bw get item 
 ```
 
 
-**Please note:** It is not recommended to export the session key to your environment to avoid session keys persisting on an unprotected disk.
+>**Please note:** It is not recommended to export the session key to your environment to avoid session keys persisting on an unprotected disk.
 
-**Please note:** When using the search function, enclosing strings in quotes will attempt to match the whole search string within any text within Bitwarden items and return these items that match. You may need to ensure your Bitwarden items are uniquely named.
+>**Please note:** When using the search function, enclosing strings in quotes will attempt to match the whole search string within any text within Bitwarden items and return these items that match. You may need to ensure your Bitwarden items are uniquely named.
 
 ## Step 3 - Update .bashrc to clean up any older Bitwarden sessions
 
