@@ -87,4 +87,4 @@ You must reload the .bashrc script to enact the changes we've made:
 . ~/.bashrc
 ```
 
-**Useful tip:** If you added any items to Bitwarden from the GUI while you have already have a session active, you can resync these changes with ```bw sync```.
+>**Useful tip:** If you added any items to Bitwarden from the GUI while you have already have a session active, you can resync these changes with ```bw sync```.
