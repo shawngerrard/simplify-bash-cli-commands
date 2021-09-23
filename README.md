@@ -1,8 +1,8 @@
 # simplify-bash-cli-commands
 
-The purpose of this is to provide the code snippets I use within .bashrc to simplify and extend Bitwarden CLI commands.
+The purpose of this is to provide the code snippets I use within .bashrc to simplify and extend tooling CLI commands.
 
-The rationale behind this is that the default Bitwarden CLI commands return complex results that likely require formatting, in-turn greatly affecting productivity.
+The rationale behind this is that default tooling commands sometimes return complex results that likely require formatting, in-turn greatly affecting productivity.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ The rationale behind this is that the default Bitwarden CLI commands return comp
 2. You must be able to access your .bashrc script.
      - Usually the .bashrc script file is found in the home (~) directory.
 
-3. You must have Bitwarden CLI installed.
+3. You must have Bitwarden and AWS CLIs installed.
 
 4. This Git uses Nano as the default text editor - feel free to use any editor of your choice, but if you do, please take note of my Nano calls and update this accordingly.
 
@@ -29,7 +29,7 @@ nano ~/.bashrc
 
 ## Step 2 - Modify .bashrc with new functions / alias
 
-The following functions will allow usage of simplified commands to return specific data from Bitwarden.
+The following functions will allow usage of simplified commands to return specific data from Bitwarden and AWS.
 
 ```
 # Create an alias to unlock the Bitwarden vault by adding the current session key to the Bitwarden session environment variable
