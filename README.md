@@ -1,4 +1,4 @@
-# simplify-bitwarden-cli-commands
+# simplify-bash-cli-commands
 
 The purpose of this is to provide the code snippets I use within .bashrc to simplify and extend Bitwarden CLI commands.
 
