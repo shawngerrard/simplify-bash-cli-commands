@@ -97,3 +97,6 @@ if [ "$?" == 1 ]; then ssh-add ~/.ssh/$USER-ultron; ssh-add ~/.ssh/ultron-rpi; f
 
 # Add Pulumi to the PATH env var
 export PATH=$PATH:$HOME/.pulumi/bin
+
+# Start session in tmate
+tmate
