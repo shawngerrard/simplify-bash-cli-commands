@@ -81,7 +81,7 @@ fi
 
 # If ssh-agent has no identities, add mine
 ssh-add -l &>/dev/null
-if [ "$?" == 1 ]; then ssh-add ~/.ssh/$USER-ultron; fi
+if [ "$?" == 1 ]; then ssh-add ~/.ssh/$USER-ultron; ssh-add ~/.ssh/ultron-rpi; fi
 
 # Remove bitwarden sessions older than a day
 #if [[ $(find ~/.bw_session -mtime +1 -print) ]]; then rm ~/.bw_session; fi
