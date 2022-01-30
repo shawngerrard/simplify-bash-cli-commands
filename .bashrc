@@ -32,7 +32,7 @@ function bwgp () { local test=$(export BW_SESSION=~/.bw_session) && bw get passw
 function bwgt () { local test=$(export BW_SESSION=~/.bw_session) && bw get totp $1 | xclip; }
 function bwgi () { local test=$(export BW_SESSION=~/.bw_session) && bw get item --pretty $1; }
 function bwli () { local test=$(export BW_SESSION=~/.bw_session) && bw list items --search $1 --pretty | egrep -i 'name|"id":'; }
-function bwgn () { local test=$(export BW_SESSION=~/.bw_session) && bw get item "$1" | grep -oP '(?<="notes":")[^"]*' | xclip;}
+function bwgn () { local test=$(export BW_SESSION=~/.bw_session) && bw get item "$1" | grep -oP '(?<="notes":")[^"]*' | xclip; }
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -45,8 +45,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Configure display for vcxsrv
-export DISPLAY=:0.0
+# Configure display for vcxsrv in wsl
+# Reference: https://github.com/microsoft/WSL/issues/4106
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
+    export DISPLAY=`grep -oP "(?<=nameserver ).+" /etc/resolv.conf`:0.0
+fi
 
 # Setup prompt
 function color_my_prompt {
@@ -92,6 +95,5 @@ if [ "$?" == 1 ]; then ssh-add ~/.ssh/$USER-ultron; fi
 # Otherwise unlock to start new session
 #else bwu; fi
 
-
-# add Pulumi to the PATH
+# Add Pulumi to the PATH env var
 export PATH=$PATH:$HOME/.pulumi/bin
